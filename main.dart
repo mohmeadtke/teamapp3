@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'Features/auth/Presentation/pages/page1.dart';
 import 'Features/auth/Presentation/state_mangment/bloc/auth_bloc.dart';
-
 import 'ingectchin.dart' as di;
 
 void main() async {
@@ -19,6 +18,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      // home: const Topwidgt(),
       routes: {
         '/': (context) => BlocProvider(
               create: (context) => di.sl<AuthBloc>(),
