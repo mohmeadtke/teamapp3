@@ -1,13 +1,26 @@
 import 'package:flutter/material.dart';
-import '../pages/verifie_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:teamapp/Features/auth/Presentation/state_mangment/bloc/auth_event.dart';
+import '../state_mangment/bloc/auth_bloc.dart';
 import 'vildate_form.dart';
 
 class Button extends StatelessWidget {
-  Button({super.key, required this.buttonText, required this.formKey});
+  Button(
+      {super.key,
+      required this.buttonText,
+      required this.formKey,
+      required this.name,
+      required this.email,
+      required this.passWord,
+      required this.snackBarMassge});
   final String buttonText;
+  final TextEditingController name;
+  final TextEditingController email;
+  final TextEditingController passWord;
   // final Function submitForm;
   final Vildateform vildateform = Vildateform();
   final dynamic formKey;
+  final String snackBarMassge;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,9 +33,30 @@ class Button extends StatelessWidget {
           ),
           onPressed: () {
             if (formKey.currentState?.validate() ?? false) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const VerifiePage()),
+              if (buttonText == 'sign-in') {
+                BlocProvider.of<AuthBloc>(context).add(
+                    SignInEvent(email: email.text, password: passWord.text));
+              }
+              if (buttonText == 'log-in') {
+                BlocProvider.of<AuthBloc>(context).add(CreateAccountEvent(
+                    email: email.text,
+                    password: passWord.text,
+                    name: name.text));
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => VerifiePage()),
+                // );
+              }
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(snackBarMassge),
+                  duration: const Duration(
+                      seconds: 10), // Optional: duration for SnackBar
+                  action: SnackBarAction(
+                    label: 'Undo',
+                    onPressed: () {},
+                  ),
+                ),
               );
             }
           },

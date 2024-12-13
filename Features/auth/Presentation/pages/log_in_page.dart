@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:teamapp/Features/auth/Presentation/Widget/bloc_form.dart';
 import '../Widget/back_grond.dart';
-import '../Widget/form.dart';
 import '../Widget/toptext.dart';
 import '../Widget/undre_line_text.dart';
 
@@ -29,10 +29,11 @@ class LogInPage extends StatelessWidget {
                 //name
                 // TextFiled(controller: null, validator: (value) {  }, labilText: '',),
                 // Form for email and password
-                Formm(
-                  buttonText: 'log-in',
-                  x: 1,
-                ),
+                const BlocForm(buttonText: 'log-in', x: 1),
+                // Formm(
+                //   buttonText: 'log-in',
+                //   x: 1,
+                // ),
                 // Spacer to push the "Create your account" text to the bottom
                 const Spacer(),
                 // Create Account Text centered at the bottom

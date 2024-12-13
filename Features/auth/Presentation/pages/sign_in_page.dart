@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import '../Widget/back_grond.dart';
-import '../Widget/form.dart';
+import '../Widget/bloc_form.dart';
 import '../Widget/toptext.dart';
 import '../Widget/undre_line_text.dart';
-import 'log_in_page.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
@@ -12,6 +11,7 @@ class SignInPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Stack(
           children: [
             // Background image
@@ -26,21 +26,15 @@ class SignInPage extends StatelessWidget {
 
                 const Spacer(),
                 // Form
-                Formm(
-                  buttonText: 'sign-in',
-                  x: 0,
-                ),
+                const BlocForm(buttonText: 'sign-in', x: 0),
+
                 // Spacer to push the "Create your account" text to the bottom
                 const Spacer(),
                 // Create Account Text centered at the bottom
                 Undrelinetext(
                   text: "create your acount",
                   fun: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LogInPage()),
-                    );
+                    Navigator.pushNamed(context, '/second');
                   },
                 )
               ],

@@ -5,8 +5,8 @@ import '../Widget/toptext.dart';
 import '../Widget/undre_line_text.dart';
 
 class VerifiePage extends StatelessWidget {
-  const VerifiePage({super.key});
-
+  VerifiePage({super.key});
+  final TextEditingController text = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -28,6 +28,10 @@ class VerifiePage extends StatelessWidget {
                 Button(
                   buttonText: 'continue',
                   formKey: null,
+                  name: text,
+                  email: text,
+                  passWord: text,
+                  snackBarMassge: '',
                 ),
                 // Spacer to push the "Create your account" text to the bottom
                 const Spacer(),

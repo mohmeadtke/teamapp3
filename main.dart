@@ -1,7 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'Features/auth/Presentation/pages/page1.dart';
+import 'package:teamapp/Features/auth/Presentation/pages/log_in_page.dart';
+import 'Features/auth/Presentation/pages/sign_in_page.dart';
 import 'Features/auth/Presentation/state_mangment/bloc/auth_bloc.dart';
 import 'ingectchin.dart' as di;
 
@@ -23,8 +24,12 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => BlocProvider(
               create: (context) => di.sl<AuthBloc>(),
-              child: const Page1(),
+              child: const SignInPage(),
             ),
+        '/second': (context) => BlocProvider(
+              create: (context) => di.sl<AuthBloc>(),
+              child: const LogInPage(),
+            )
         // '/home': (context) => HomeScreen(),
       },
     );

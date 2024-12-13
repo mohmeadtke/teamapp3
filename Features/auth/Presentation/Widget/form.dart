@@ -4,7 +4,11 @@ import 'text_filed.dart';
 import 'vildate_form.dart';
 
 class Formm extends StatelessWidget {
-  Formm({super.key, required this.buttonText, required this.x});
+  Formm(
+      {super.key,
+      required this.buttonText,
+      required this.x,
+      required this.snackBarMassge});
   final Vildateform vildateform = Vildateform();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
@@ -12,10 +16,13 @@ class Formm extends StatelessWidget {
   final String buttonText;
   final _formKey = GlobalKey<FormState>();
   final int x;
+  final String snackBarMassge;
   @override
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
+      // child: Stack(
+      //   children: [
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -48,9 +55,15 @@ class Formm extends StatelessWidget {
           Button(
             buttonText: buttonText,
             formKey: _formKey,
-          )
+            name: _nameController,
+            email: _emailController,
+            passWord: _passwordController,
+            snackBarMassge: snackBarMassge,
+          ),
         ],
       ),
+      //   ],
+      // ),
     );
   }
 }
