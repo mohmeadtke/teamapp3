@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:teamapp/Features/auth/Presentation/pages/verifie_page.dart';
-
 import '../state_mangment/bloc/auth_bloc.dart';
 import '../state_mangment/bloc/auth_state.dart';
 import 'form.dart';
@@ -35,7 +34,7 @@ class BlocForm extends StatelessWidget {
           return Formm(
             buttonText: buttonText,
             x: x,
-            snackBarMassge: "",
+            snackBarMassge: 'Something wrong try again',
           );
         }
       },

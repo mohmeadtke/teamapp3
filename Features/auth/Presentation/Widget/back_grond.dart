@@ -9,12 +9,12 @@ class Backgrond extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
-          Positioned.fill(
-            child: Image.asset(
-              "assets/images/hands.webp",
-              fit: BoxFit.cover,
-            ),
-          ),
+          // Positioned.fill(
+          //   child: Image.asset(
+          //     "assets/images/hands.webp",
+          //     fit: BoxFit.cover,
+          //   ),
+          // ),
 
           // The background filter with animation
           Container(

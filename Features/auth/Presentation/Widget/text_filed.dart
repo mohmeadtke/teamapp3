@@ -16,7 +16,8 @@ class TextFiled extends StatelessWidget {
       child: TextFormField(
         controller: controller,
         decoration: InputDecoration(
-          labelText: labilText,
+          // labelText: labilText,
+          hintText: labilText,
           labelStyle: const TextStyle(
             color: Color.fromARGB(131, 0, 0, 0),
           ),

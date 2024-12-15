@@ -32,9 +32,14 @@ class CreateAccount {
       String userId = nextId.toString();
 
       // Create a new user with Firebase Authentication
-      await FirebaseAuth.instance
+      UserCredential userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
-
+      // Send verification email
+      User? user = userCredential.user;
+      if (user != null && !user.emailVerified) {
+        await user.sendEmailVerification();
+        print('Verification email has been sent.');
+      }
       // Create the new user document in Firestore with userId as the document ID
       DocumentReference userDoc = firestore.collection('users').doc(userId);
       batch.set(userDoc, {

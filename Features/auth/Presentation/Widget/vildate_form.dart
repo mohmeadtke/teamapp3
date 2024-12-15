@@ -18,7 +18,7 @@ class Vildateform {
       return 'Please enter a password';
     }
     if (value.length < 6) {
-      return 'Password must be at least 6 characters';
+      return ' must be at least 6 characters';
     }
     return null;
   }

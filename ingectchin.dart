@@ -4,7 +4,7 @@ import 'package:teamapp/Features/auth/Presentation/state_mangment/bloc/auth_bloc
 import 'package:teamapp/Features/auth/data/DataSource/createAccount.dart';
 import 'package:teamapp/Features/auth/data/DataSource/signIn.dart';
 import 'package:teamapp/Features/auth/data/DataSource/signInWithGoogle.dart';
-import 'package:teamapp/Features/auth/data/repoimpl/userRepoImpl.dart';
+import 'package:teamapp/Features/auth/data/repoimpl/user_repo_impl.dart';
 import 'package:teamapp/Features/auth/domian/repo/userRepo.dart';
 import 'package:teamapp/Features/auth/domian/usecase/createAccount.dart';
 import 'package:teamapp/Features/auth/domian/usecase/signInUseCase.dart';

@@ -31,34 +31,8 @@ class Button extends StatelessWidget {
             backgroundColor:
                 const Color.fromARGB(255, 129, 129, 123), // background color
           ),
-          onPressed: () {
-            if (formKey.currentState?.validate() ?? false) {
-              if (buttonText == 'sign-in') {
-                BlocProvider.of<AuthBloc>(context).add(
-                    SignInEvent(email: email.text, password: passWord.text));
-              }
-              if (buttonText == 'log-in') {
-                BlocProvider.of<AuthBloc>(context).add(CreateAccountEvent(
-                    email: email.text,
-                    password: passWord.text,
-                    name: name.text));
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => VerifiePage()),
-                // );
-              }
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(snackBarMassge),
-                  duration: const Duration(
-                      seconds: 10), // Optional: duration for SnackBar
-                  action: SnackBarAction(
-                    label: 'Undo',
-                    onPressed: () {},
-                  ),
-                ),
-              );
-            }
+          onPressed: () async {
+            await onPrssedFun(context);
           },
           child: Text(
             buttonText,
@@ -67,5 +41,35 @@ class Button extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> onPrssedFun(BuildContext context) async {
+    // if (formKey.currentState?.validate() ?? false) {
+    //   if (buttonText == 'sign-in') {
+    //     BlocProvider.of<AuthBloc>(context)
+    //         .add(SignInEvent(email: email.text, password: passWord.text));
+    //   }
+    //   if (buttonText == 'log-in') {
+    // BlocProvider.of<AuthBloc>(context).add(CreateAccountEvent(
+    //     email: "mohmmead49@gmail.com", password: "123456", name: "taqi"));
+
+    BlocProvider.of<AuthBloc>(context).add(SignInWithGoogleEvent());
+
+    //   }
+    //   ScaffoldMessenger.of(context).showSnackBar(
+    //     SnackBar(
+    //       content: Text(snackBarMassge),
+    //       duration:
+    //           const Duration(seconds: 10), // Optional: duration for SnackBar
+    //       action: SnackBarAction(
+    //         label: 'Undo',
+    //         onPressed: () {
+    //           print(snackBarMassge);
+    //         },
+    //       ),
+    //     ),
+    //   );
+    //   print(snackBarMassge + "scond print");
+    // }
   }
 }

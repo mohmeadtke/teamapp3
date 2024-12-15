@@ -40,7 +40,7 @@ class LogInPage extends StatelessWidget {
                 Undrelinetext(
                   text: "back to main page",
                   fun: () {
-                    Navigator.pop(context);
+                    Navigator.pushNamed(context, '/');
                   },
                 )
               ],
