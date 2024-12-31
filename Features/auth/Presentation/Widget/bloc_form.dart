@@ -14,7 +14,10 @@ class BlocForm extends StatelessWidget {
     return BlocBuilder<AuthBloc, AuthState>(
       builder: (context, state) {
         if (state is LoadingState) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(
+              child: CircularProgressIndicator(
+            color: Colors.white,
+          ));
         } else if (state is SuccessState) {
           Navigator.push(
             context,
