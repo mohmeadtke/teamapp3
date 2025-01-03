@@ -5,14 +5,14 @@ import '../state_mangment/bloc/auth_bloc.dart';
 import 'vildate_form.dart';
 
 class Button extends StatelessWidget {
-  Button(
-      {super.key,
-      required this.buttonText,
-      required this.formKey,
-      required this.name,
-      required this.email,
-      required this.passWord,
-      required this.snackBarMassge});
+  Button({
+    super.key,
+    required this.buttonText,
+    required this.formKey,
+    required this.name,
+    required this.email,
+    required this.passWord,
+  });
   final String buttonText;
   final TextEditingController name;
   final TextEditingController email;
@@ -20,7 +20,7 @@ class Button extends StatelessWidget {
   // final Function submitForm;
   final Vildateform vildateform = Vildateform();
   final dynamic formKey;
-  final String snackBarMassge;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -44,32 +44,17 @@ class Button extends StatelessWidget {
   }
 
   Future<void> onPrssedFun(BuildContext context) async {
-    // if (formKey.currentState?.validate() ?? false) {
-    //   if (buttonText == 'sign-in') {
-    //     BlocProvider.of<AuthBloc>(context)
-    //         .add(SignInEvent(email: email.text, password: passWord.text));
-    //   }
-    //   if (buttonText == 'log-in') {
-    // BlocProvider.of<AuthBloc>(context).add(CreateAccountEvent(
-    //     email: "mohmmead49@gmail.com", password: "123456", name: "taqi"));
+    if (formKey.currentState?.validate() ?? false) {
+      if (buttonText == 'sign-in') {
+        BlocProvider.of<AuthBloc>(context)
+            .add(SignInEvent(email: email.text, password: passWord.text));
+      }
+      if (buttonText == 'log-in') {
+        BlocProvider.of<AuthBloc>(context).add(CreateAccountEvent(
+            email: email.text, password: passWord.text, name: name.text));
 
-    BlocProvider.of<AuthBloc>(context).add(SignInWithGoogleEvent());
-
-    //   }
-    //   ScaffoldMessenger.of(context).showSnackBar(
-    //     SnackBar(
-    //       content: Text(snackBarMassge),
-    //       duration:
-    //           const Duration(seconds: 10), // Optional: duration for SnackBar
-    //       action: SnackBarAction(
-    //         label: 'Undo',
-    //         onPressed: () {
-    //           print(snackBarMassge);
-    //         },
-    //       ),
-    //     ),
-    //   );
-    //   print(snackBarMassge + "scond print");
-    // }
+        // BlocProvider.of<AuthBloc>(context).add(SignInWithGoogleEvent());
+      }
+    }
   }
 }

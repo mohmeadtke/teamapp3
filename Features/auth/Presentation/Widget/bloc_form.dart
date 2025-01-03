@@ -13,7 +13,21 @@ class BlocForm extends StatelessWidget {
   //happe the next day of the new year
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AuthBloc, AuthState>(
+    return BlocConsumer<AuthBloc, AuthState>(
+      listener: (context, state) {
+        if (state is SuccessState) {
+          Navigator.pushNamed(context, '/third');
+        }
+        if (state is FailureState) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content:
+                  Text(state.message), // Use the state.message as the content
+              duration: const Duration(seconds: 3),
+            ),
+          );
+        }
+      },
       builder: (context, state) {
         if (state is LoadingState) {
           return const Center(
@@ -21,25 +35,16 @@ class BlocForm extends StatelessWidget {
             color: Colors.white,
           ));
         } else if (state is SuccessState) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => VerifiePage()),
-          );
-          return const Text(
-            "",
-            style: TextStyle(color: Colors.white, fontSize: 30),
-          );
+          return const Text("");
         } else if (state is FailureState) {
           return Formm(
             buttonText: buttonText,
             x: x,
-            snackBarMassge: state.message,
           );
         } else {
           return Formm(
             buttonText: buttonText,
             x: x,
-            snackBarMassge: 'Something wrong try again',
           );
         }
       },

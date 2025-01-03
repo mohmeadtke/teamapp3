@@ -31,7 +31,6 @@ class VerifiePage extends StatelessWidget {
                   name: text,
                   email: text,
                   passWord: text,
-                  snackBarMassge: '',
                 ),
                 // Spacer to push the "Create your account" text to the bottom
                 const Spacer(),
@@ -39,7 +38,7 @@ class VerifiePage extends StatelessWidget {
                 Undrelinetext(
                   text: " back to main page",
                   fun: () {
-                    Navigator.pop(context);
+                    Navigator.pushNamed(context, '/');
                   },
                 )
               ],

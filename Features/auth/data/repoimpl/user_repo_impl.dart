@@ -46,8 +46,13 @@ class UserRepoImpl implements UserRepo {
     if (await networkInfo.isConnected) {
       try {
         await action();
+        print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+
         return const Right(unit);
       } catch (e) {
+        print(e);
+        print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+
         return Left(Failure.serverError(massge: e.toString()));
       }
     } else {
