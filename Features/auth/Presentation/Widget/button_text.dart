@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:teamapp/Features/auth/Presentation/state_mangment/bloc/auth_event.dart';
@@ -55,6 +56,7 @@ class Button extends StatelessWidget {
 
         // BlocProvider.of<AuthBloc>(context).add(SignInWithGoogleEvent());
       }
+      if (buttonText == 'continue') {}
     }
   }
 }

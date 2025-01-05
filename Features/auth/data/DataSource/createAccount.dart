@@ -29,7 +29,6 @@ class CreateAccount {
 
     // Convert nextId to string to use as user ID
     String userId = nextId.toString();
-    print("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
     // Create a new user with Firebase Authentication
     UserCredential userCredential = await FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: email, password: password);
@@ -41,11 +40,8 @@ class CreateAccount {
     }
     // Create the new user document in Firestore with userId as the document ID
     DocumentReference userDoc = firestore.collection('users').doc(userId);
-    batch.set(userDoc, {
-      'name': name,
-      'email': email,
-      'userId': userId,
-    });
+    batch.set(userDoc,
+        {'name': name, 'email': email, 'userId': userId, 'passWord': password});
 
     // Commit the batch
     await batch.commit();
