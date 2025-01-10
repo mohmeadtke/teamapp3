@@ -22,7 +22,7 @@ class BlocForm extends StatelessWidget {
             SnackBar(
               content:
                   Text(state.message), // Use the state.message as the content
-              duration: const Duration(seconds: 3),
+              duration: const Duration(seconds: 8),
             ),
           );
         }
