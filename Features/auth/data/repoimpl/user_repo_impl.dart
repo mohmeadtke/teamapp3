@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:teamapp/Features/auth/data/DataSource/createAccount.dart';
 import 'package:teamapp/Features/auth/data/DataSource/signIn.dart';
 import 'package:teamapp/Features/auth/data/DataSource/signInWithGoogle.dart';
-import 'package:teamapp/Features/auth/domian/repo/userRepo.dart';
+import 'package:teamapp/Features/auth/Domain/repo/userRepo.dart';
 import 'package:teamapp/core/failure/failure.dart';
 import 'package:teamapp/core/network/network_info.dart';
 
