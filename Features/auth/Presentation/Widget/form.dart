@@ -4,11 +4,11 @@ import 'text_filed.dart';
 import 'vildate_form.dart';
 
 class Formm extends StatelessWidget {
-  Formm(
-      {super.key,
-      required this.buttonText,
-      required this.x,
-      required this.snackBarMassge});
+  Formm({
+    super.key,
+    required this.buttonText,
+    required this.x,
+  });
   final Vildateform vildateform = Vildateform();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
@@ -16,7 +16,7 @@ class Formm extends StatelessWidget {
   final String buttonText;
   final _formKey = GlobalKey<FormState>();
   final int x;
-  final String snackBarMassge;
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -58,7 +58,6 @@ class Formm extends StatelessWidget {
             name: _nameController,
             email: _emailController,
             passWord: _passwordController,
-            snackBarMassge: snackBarMassge,
           ),
         ],
       ),

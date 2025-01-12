@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../Widget/back_grond.dart';
 import '../Widget/button_text.dart';
@@ -31,15 +32,15 @@ class VerifiePage extends StatelessWidget {
                   name: text,
                   email: text,
                   passWord: text,
-                  snackBarMassge: '',
                 ),
                 // Spacer to push the "Create your account" text to the bottom
                 const Spacer(),
                 // Create Account Text centered at the bottom
                 Undrelinetext(
                   text: " back to main page",
-                  fun: () {
-                    Navigator.pop(context);
+                  fun: () async {
+                    await FirebaseAuth.instance.signOut();
+                    Navigator.pushNamed(context, '/');
                   },
                 )
               ],

@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
-import '../../../domian/usecase/createAccount.dart';
-import '../../../domian/usecase/signInUseCase.dart';
-import '../../../domian/usecase/signInWithGoogle.dart';
+import '../../../Domain/usecase/createAccount.dart';
+import '../../../Domain/usecase/signInUseCase.dart';
+import '../../../Domain/usecase/signInWithGoogle.dart';
 import 'auth_event.dart';
 import 'auth_state.dart';
 

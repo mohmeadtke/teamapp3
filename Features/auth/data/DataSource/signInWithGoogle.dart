@@ -10,10 +10,8 @@ class SignInWithGoogle {
   Future<Unit> signInWithGoogle() async {
     try {
       // Trigger the authentication flow
-      print("helowwwwwwwwwwwww");
       final googleUser = await _googleSignIn.signIn();
-      print("nooooooooooo");
-      print(googleUser);
+      print('google use data' + googleUser.toString());
 
       if (googleUser == null) {
         return unit; // User canceled the sign-in
