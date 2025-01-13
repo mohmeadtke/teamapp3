@@ -1,5 +1,5 @@
 class Jointeamentity {
-  final int teamId;
+  final String teamId;
   final String passwrod;
   final String userName;
   final String userId;

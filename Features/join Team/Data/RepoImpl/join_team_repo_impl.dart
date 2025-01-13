@@ -18,7 +18,7 @@ class JoinTeamRepoImpl implements JoinTeamRepo {
       Jointeamentity jointeamentity) async {
     if (await networkInfo.isConnected) {
       try {
-//! add the data soruse
+        joinTeamDataSource.joinTeamFun(jointeamentity);
         return const Right(unit);
       } catch (e) {
         return Left(Failure.serverError(massge: e.toString()));
