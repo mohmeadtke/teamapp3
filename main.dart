@@ -8,7 +8,6 @@ import 'Features/auth/Presentation/pages/sign_in_page.dart';
 import 'Features/auth/Presentation/state_mangment/bloc/auth_bloc.dart';
 import 'ingectchin.dart' as di;
 
-//making the ui
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();

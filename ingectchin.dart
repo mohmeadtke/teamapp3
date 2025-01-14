@@ -14,13 +14,27 @@ import 'package:teamapp/Features/auth/Domain/repo/userRepo.dart';
 import 'package:teamapp/Features/auth/Domain/usecase/createAccount.dart';
 import 'package:teamapp/Features/auth/Domain/usecase/signInUseCase.dart';
 import 'package:teamapp/Features/auth/Domain/usecase/signInWithGoogle.dart';
+import 'package:teamapp/Features/join%20Team/Data/DataSource/get_team_data_source.dart';
+import 'package:teamapp/Features/join%20Team/Data/DataSource/join_team_data_source.dart';
+import 'package:teamapp/Features/join%20Team/Data/RepoImpl/join_team_repo_impl.dart';
+import 'package:teamapp/Features/join%20Team/Domian/Repo/join_team_repo.dart';
+import 'package:teamapp/Features/join%20Team/Domian/UseCase/join_team_usecase.dart';
 import 'package:teamapp/core/network/network_info.dart';
 
 final sl = GetIt.instance;
 
 void init() {
-  //! Features
-  //?Create a team
+//! Features
+//? joinTeam
+  //repo
+  sl.registerLazySingleton<JoinTeamRepo>(() => JoinTeamRepoImpl(
+      getTeamDataSource: sl(), joinTeamDataSource: sl(), networkInfo: sl()));
+  //usecase
+  sl.registerLazySingleton(() => JoinTeamUsecase(joinTeamRepo: sl()));
+  //data
+  sl.registerFactory(() => JoinTeamDataSource());
+  sl.registerFactory(() => GetTeamDataSource());
+//?Create a team
   //repo
   sl.registerLazySingleton<TeamRepo>(() => TeamRepoImpl(
       networkInfo: sl(), addTeamImage: sl(), createTeamDataSource: sl()));
@@ -29,7 +43,7 @@ void init() {
   //data
   sl.registerFactory(() => AddTeamImage());
   sl.registerFactory(() => CreateTeamDataSource());
-  //?auth
+//?auth
   //bloc
   sl.registerFactory(() => AuthBloc(
       createaccountUseCase: sl(),
