@@ -34,7 +34,7 @@ class SignInPage extends StatelessWidget {
                 Undrelinetext(
                   text: "create your acount",
                   fun: () {
-                    Navigator.pushNamed(context, '/second');
+                    Navigator.pushNamed(context, '/LogIn');
                   },
                 )
               ],

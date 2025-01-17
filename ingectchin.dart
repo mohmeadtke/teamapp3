@@ -18,6 +18,7 @@ import 'package:teamapp/Features/join%20Team/Data/DataSource/get_team_data_sourc
 import 'package:teamapp/Features/join%20Team/Data/DataSource/join_team_data_source.dart';
 import 'package:teamapp/Features/join%20Team/Data/RepoImpl/join_team_repo_impl.dart';
 import 'package:teamapp/Features/join%20Team/Domian/Repo/join_team_repo.dart';
+import 'package:teamapp/Features/join%20Team/Domian/UseCase/get_team_usecase.dart';
 import 'package:teamapp/Features/join%20Team/Domian/UseCase/join_team_usecase.dart';
 import 'package:teamapp/core/network/network_info.dart';
 
@@ -31,6 +32,7 @@ void init() {
       getTeamDataSource: sl(), joinTeamDataSource: sl(), networkInfo: sl()));
   //usecase
   sl.registerLazySingleton(() => JoinTeamUsecase(joinTeamRepo: sl()));
+  sl.registerLazySingleton(() => GetTeamUsecase(joinTeamRepo: sl()));
   //data
   sl.registerFactory(() => JoinTeamDataSource());
   sl.registerFactory(() => GetTeamDataSource());

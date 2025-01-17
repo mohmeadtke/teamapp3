@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:teamapp/Features/Create%20Team/Presentation/testpageforcreatTeam.dart';
 import 'package:teamapp/Features/auth/Presentation/pages/log_in_page.dart';
 import 'package:teamapp/Features/auth/Presentation/pages/verifie_page.dart';
+import 'package:teamapp/auth_check.dart';
 import 'Features/auth/Presentation/pages/sign_in_page.dart';
 import 'Features/auth/Presentation/state_mangment/bloc/auth_bloc.dart';
 import 'ingectchin.dart' as di;
@@ -22,25 +23,27 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: UserFormPage(
-        teamRepo: di.sl(),
-      ),
-      // routes: {
-      //   '/': (context) => BlocProvider(
-      //         create: (context) => di.sl<AuthBloc>(),
-      //         child: const SignInPage(),
-      //       ),
-      //   '/second': (context) => BlocProvider(
-      //         create: (context) => di.sl<AuthBloc>(),
-      //         child: const LogInPage(),
-      //       ),
-      //   '/third': (context) => BlocProvider(
-      //         create: (context) => di.sl<AuthBloc>(),
-      //         child: VerifiePage(),
-      //       ),
-
-      //   // '/home': (context) => HomeScreen(),
-      // },
+      // home: UserFormPage(
+      //   teamRepo: di.sl(),
+      // ),
+      routes: {
+        '/': (context) => const Auth(),
+        '/SignIn': (context) => BlocProvider(
+              create: (context) => di.sl<AuthBloc>(),
+              child: const SignInPage(),
+            ),
+        '/LogIn': (context) => BlocProvider(
+              create: (context) => di.sl<AuthBloc>(),
+              child: const LogInPage(),
+            ),
+        '/Verifie': (context) => BlocProvider(
+              create: (context) => di.sl<AuthBloc>(),
+              child: VerifiePage(),
+            ),
+        '/UserFormPage': (context) => UserFormPage(
+              teamRepo: di.sl(),
+            )
+      },
     );
   }
 }

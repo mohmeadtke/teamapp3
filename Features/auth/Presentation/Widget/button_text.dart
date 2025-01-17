@@ -48,7 +48,22 @@ class Button extends StatelessWidget {
   }
 
   Future<void> onPrssedFun(BuildContext context) async {
-    if (formKey.currentState?.validate() ?? false) {
+    if (buttonText == 'continue') {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+              "u didnt verifie yet "), // Use the state.message as the content
+          duration: Duration(seconds: 8),
+        ),
+      );
+      Navigator.pushNamed(context, '/');
+
+      // Navigator.push(
+      //     context,
+      //     MaterialPageRoute(
+      //       builder: (context) => UserFormPage(),
+      //     ));
+    } else if (formKey.currentState?.validate() ?? false) {
       if (buttonText == 'sign-in') {
         BlocProvider.of<AuthBloc>(context)
             .add(SignInEvent(email: email.text, password: passWord.text));
@@ -58,13 +73,6 @@ class Button extends StatelessWidget {
             email: email.text, password: passWord.text, name: name.text));
 
         // BlocProvider.of<AuthBloc>(context).add(SignInWithGoogleEvent());
-      }
-      if (buttonText == 'continue') {
-        // Navigator.push(
-        //     context,
-        //     MaterialPageRoute(
-        //       builder: (context) => UserFormPage(),
-        //     ));
       }
     }
   }

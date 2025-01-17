@@ -8,6 +8,7 @@ import '../Widget/undre_line_text.dart';
 class VerifiePage extends StatelessWidget {
   VerifiePage({super.key});
   final TextEditingController text = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -40,7 +41,7 @@ class VerifiePage extends StatelessWidget {
                   text: " back to main page",
                   fun: () async {
                     await FirebaseAuth.instance.signOut();
-                    Navigator.pushNamed(context, '/');
+                    Navigator.pushNamed(context, '/SignIn');
                   },
                 )
               ],

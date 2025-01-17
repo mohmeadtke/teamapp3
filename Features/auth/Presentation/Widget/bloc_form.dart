@@ -15,7 +15,7 @@ class BlocForm extends StatelessWidget {
     return BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state is SuccessState) {
-          Navigator.pushNamed(context, '/third');
+          Navigator.of(context).pushReplacementNamed('/');
         }
         if (state is FailureState) {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -40,7 +40,9 @@ class BlocForm extends StatelessWidget {
             buttonText: buttonText,
             x: x,
           );
-        } else {
+        }
+        //this is the inital state so i should retrun someting
+        else {
           return Formm(
             buttonText: buttonText,
             x: x,
