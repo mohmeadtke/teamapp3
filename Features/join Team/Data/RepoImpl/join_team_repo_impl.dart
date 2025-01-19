@@ -38,7 +38,7 @@ class JoinTeamRepoImpl implements JoinTeamRepo {
         joinTeamDataSource.joinTeamFun(jointeamentity);
         return const Right(unit);
       } catch (e) {
-        return Left(Failure.serverError(massge: e.toString()));
+        return Left(Failure.serverError(massge: e.toString()));      
       }
     } else {
       return const Left(Failure.offlineError());

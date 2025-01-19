@@ -2,6 +2,7 @@ import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:teamapp/Features/Create%20Team/Domain/Repo/team_repo.dart';
 import 'package:teamapp/Features/Create%20Team/Domain/Usecase/create_team.dart';
+import 'package:teamapp/Features/Create%20Team/Presentation/state_mangment/bloc/create_team_bloc.dart';
 import 'package:teamapp/Features/Create%20Team/data/DataSource/add_team_image.dart';
 import 'package:teamapp/Features/Create%20Team/data/DataSource/create_team_data_source.dart';
 import 'package:teamapp/Features/Create%20Team/data/repoimpl/team_repo_impl.dart';
@@ -45,6 +46,8 @@ void init() {
   //data
   sl.registerFactory(() => AddTeamImage());
   sl.registerFactory(() => CreateTeamDataSource());
+  //bloc
+  sl.registerFactory(() => CreateTeamBloc(createTeamUseCase: sl()));
 //?auth
   //bloc
   sl.registerFactory(() => AuthBloc(
