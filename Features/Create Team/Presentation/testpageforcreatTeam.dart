@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:teamapp/Features/Create%20Team/Domain/Entity/team_entity.dart';
 import 'package:teamapp/Features/Create%20Team/Domain/Repo/team_repo.dart';
 
+//Fuck u idote
 class UserFormPage extends StatelessWidget {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
