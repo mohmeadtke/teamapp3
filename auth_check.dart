@@ -17,8 +17,8 @@ class Auth extends StatelessWidget {
             if (user != null) {
               if (user.emailVerified) {
                 // Navigate to the UserFormPage
-                Future.microtask(() =>
-                    Navigator.pushReplacementNamed(context, '/UserFormPage'));
+                Future.microtask(
+                    () => Navigator.pushReplacementNamed(context, '/mainPage'));
               } else {
                 // Navigate to the Verifie page
 
