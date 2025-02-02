@@ -7,7 +7,7 @@ import 'package:teamapp/core/failure/failure.dart';
 class ProfileRepoImpl implements ProfileRepo {
   @override
   Future<Either<Failure, ProfileGetEntity>> getData() {
-    // TODO: implement getData
+    // TODO: implement getDatap
     //to do
     throw UnimplementedError();
   }
