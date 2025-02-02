@@ -1,5 +1,3 @@
-import 'dart:io';
-
 class ProfileGetEntity {
   final String name;
   final String email;
